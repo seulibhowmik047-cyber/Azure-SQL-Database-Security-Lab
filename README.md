@@ -1,63 +1,107 @@
-# Azure-SQL-Database-Security-Lab
-Hands-on lab and documentation for securing Azure SQL databases using Microsoft Entra ID, RBAC, Firewall, Private Endpoint, Auditing, Microsoft Sentinel, TDE, TLS, Defender for Cloud, and data protection control
+# Azure SQL Database Security Lab
 
-## Overview
+A practical Azure security lab focused on securing Azure SQL databases using Microsoft Entra ID, RBAC, Firewall, Private Endpoint, Auditing, Encryption, Microsoft Defender for Cloud, Microsoft Sentinel, Dynamic Data Masking, and Always Encrypted.
 
-This project documents security practices for Azure SQL Database.
+---
 
-## Security Areas Covered
+## 📌 Overview
 
-- Microsoft Entra ID Authentication
-- SQL Authentication
-- Azure RBAC
-- Database Roles
-- Managed Identity
-- Azure SQL Firewall
-- Private Endpoint
-- Virtual Network
-- Private DNS
-- Azure SQL Auditing
-- Log Analytics
-- Microsoft Sentinel
-- Transparent Data Encryption (TDE)
-- TLS
-- Customer-Managed Keys
-- Azure Key Vault
-- Microsoft Defender for Cloud
-- Dynamic Data Masking
-- Always Encrypted
+Azure SQL Database is a fully managed relational database service provided by Microsoft Azure.
 
-## Security Architecture
+Because databases store sensitive business and customer information, they must be protected against:
 
-The lab follows a defense-in-depth approach:
+- Unauthorized access
+- Credential theft
+- Network attacks
+- SQL injection
+- Brute-force attacks
+- Data theft
+- Data exfiltration
+- Excessive permissions
+- Misconfiguration
 
-Identity Security
-→ Network Security
-→ Authorization
-→ Auditing
-→ Threat Detection
-→ Data Protection
+This project demonstrates a defense-in-depth approach for securing Azure SQL databases.
 
-## Tools
+---
 
-- Microsoft Azure
-- Azure SQL Database
-- Microsoft Entra ID
-- Azure Key Vault
-- Log Analytics
-- Microsoft Sentinel
-- Microsoft Defender for Cloud
-- SQL/T-SQL
+# 🎯 Objectives
 
-## Learning Objectives
+The main objectives of this lab are:
 
-1. Secure Azure SQL authentication.
-2. Configure Microsoft Entra authentication.
-3. Apply least-privilege database access.
-4. Configure firewall rules.
-5. Implement private connectivity.
-6. Enable SQL auditing.
-7. Send logs to monitoring platforms.
-8. Protect data at rest and in transit.
-9. Detect database threats.
-10. Protect sensitive information.
+1. Understand Azure SQL Database security.
+2. Understand Azure SQL Managed Instance.
+3. Configure Microsoft Entra ID authentication.
+4. Understand SQL authentication risks.
+5. Configure managed identities.
+6. Configure Azure RBAC.
+7. Create database users and roles.
+8. Configure Azure SQL Firewall.
+9. Configure Private Endpoint.
+10. Understand network isolation.
+11. Enable Azure SQL Auditing.
+12. Send logs to Log Analytics.
+13. Understand Microsoft Sentinel integration.
+14. Understand Microsoft Defender for Cloud.
+15. Protect data at rest with TDE.
+16. Protect data in transit with TLS.
+17. Understand Dynamic Data Masking.
+18. Understand Always Encrypted.
+19. Apply least-privilege access.
+20. Implement defense-in-depth security.
+
+---
+
+# 🔐 Security Architecture
+
+```text
+                         Users
+                           |
+                           v
+                   Microsoft Entra ID
+                           |
+                           v
+                          MFA
+                           |
+                           v
+                  Conditional Access
+                           |
+                           v
+                      Application
+                           |
+                           v
+                    Managed Identity
+                           |
+                           v
+                    Virtual Network
+                           |
+                           v
+                   Private Endpoint
+                           |
+                           v
+                  Azure SQL Database
+                           |
+          +----------------+----------------+
+          |                |                |
+          v                v                v
+         RBAC             TDE              TLS
+          |                |                |
+          +----------------+----------------+
+                           |
+                           v
+                    SQL Auditing
+                           |
+                           v
+                  Log Analytics
+                           |
+              +------------+------------+
+              |                         |
+              v                         v
+      Defender for Cloud        Microsoft Sentinel
+              |                         |
+              +------------+------------+
+                           |
+                           v
+                   Security Monitoring
+                           |
+                           v
+                    Incident Response
